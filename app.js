@@ -36,12 +36,13 @@ const fs = require('fs');
  });
 */
 //=================Events=======Module==================================
+
 const EventEmitter = require('events');
 const emitter = new EventEmitter();
 
 //Rejister a listener
-emitter.on('messageLogged', function(){
-    console.log('Listener called');
+emitter.on('messageLogged', function(arg){
+    console.log('Listener called', arg);
 });
 //Raise an event    emit means making noise, produce - signalling
-emitter.emit('messageLog'); 
+emitter.emit('messageLog' , {id: 1, url: 'http://'}); 
